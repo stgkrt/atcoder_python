@@ -1,0 +1,42 @@
+{
+    "name": "atcoder-python",
+    "dockerFile": "Dockerfile",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                "ms-python.isort",
+                "ms-python.mypy-type-checker",
+                "yzhang.markdown-all-in-one",
+                "tamasfe.even-better-toml",
+                "redhat.vscode-yaml",
+                "ms-toolsai.jupyter",
+                "vscodevim.vim"
+            ],
+            "settings": {
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true
+                    }
+                },
+                "python.formatting.provider": "black",
+                "python.formatting.blackArgs": [
+                    "--config=${workspacefolder}/pyproject.toml"
+                ],
+                "python.linting.mypyArgs": [
+                    "--config=${workspacefolder}/mypy.ini"
+                ],
+                "python.linting.flake8Args": [
+                    "--config=${workspacefolder}/.flake8"
+                ]
+            }
+        }
+    },
+    "postAttachCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+}
