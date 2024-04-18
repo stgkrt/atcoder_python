@@ -37,14 +37,17 @@ config設定
 ```bash
 acc config default-template python
 ```
-
+コンテストの全データを読み出すように設定
+```
+acc config default-task-choice all
+```
 aliasを設定
 ~.bashrcに以下を追加
 ```bash
 # PyPy3でのテスト実施
-alias test_pypy='oj t -c "pypy3 main.py" -d ./tests/'
+alias test='oj t -c "pypy3 main.py" -d ./tests/'
 # Pythonでのテスト実施
-alias test='oj t -c "python3 main.py" -d ./tests/'
+alias test_python='oj t -c "python3 main.py" -d ./tests/'
 
 # PyPy3での解答提出
 alias sb='acc s main.py -- --guess-python-interpreter pypy'

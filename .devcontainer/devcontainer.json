@@ -15,7 +15,6 @@
                 "yzhang.markdown-all-in-one",
                 "tamasfe.even-better-toml",
                 "redhat.vscode-yaml",
-                "ms-toolsai.jupyter",
                 "vscodevim.vim"
             ],
             "settings": {
