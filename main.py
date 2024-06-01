@@ -1,8 +1,18 @@
 # テキストから入力を受け取る
+import argparse
 import io
 import sys
 
-with open("Input.txt") as TxtOpen:
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", "-i", type=str, default="sample1.txt")
+    return parser.parse_args()
+
+
+parser = get_args()
+
+with open(parser.input) as TxtOpen:
     INPUT = TxtOpen.read()
 sys.stdin = io.StringIO(INPUT)
 
